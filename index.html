@@ -188,7 +188,135 @@ body{
 <script>
 
 function petugas(){
-    alert("Menu PETUGAS akan kita bangun pada tahap berikutnya.");
+    document.body.innerHTML = `
+    <div style="
+        min-height:100vh;
+        background:linear-gradient(145deg,#003b7a,#0066b3,#eaf4ff);
+        padding:25px 20px;
+        box-sizing:border-box;
+        font-family:Arial,sans-serif;
+        color:#123;
+    ">
+
+        <div style="
+            max-width:430px;
+            margin:auto;
+        ">
+
+            <div style="
+                text-align:center;
+                color:white;
+                margin-bottom:25px;
+            ">
+                <div style="
+                    width:65px;
+                    height:65px;
+                    margin:auto;
+                    border-radius:50%;
+                    background:white;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    color:#0052a5;
+                    font-size:22px;
+                    font-weight:bold;
+                ">
+                    DCV
+                </div>
+
+                <h1 style="margin:15px 0 5px;font-size:25px;">
+                    PETUGAS
+                </h1>
+
+                <p style="margin:0;">
+                    Digital Customer Voice
+                </p>
+            </div>
+
+            <div style="
+                background:white;
+                border-radius:25px;
+                padding:25px 20px;
+                box-shadow:0 10px 30px rgba(0,0,0,.2);
+            ">
+
+                <h2 style="
+                    text-align:center;
+                    color:#0052a5;
+                    margin-top:0;
+                ">
+                    Laporan Suara Pelanggan
+                </h2>
+
+                <label>Nama Petugas</label>
+                <input id="nama" type="text"
+                    placeholder="Masukkan nama petugas"
+                    style="width:100%;padding:13px;margin:8px 0 15px;box-sizing:border-box;border-radius:10px;border:1px solid #ccc;">
+
+                <label>Tanggal</label>
+                <input id="tanggal" type="date"
+                    style="width:100%;padding:13px;margin:8px 0 15px;box-sizing:border-box;border-radius:10px;border:1px solid #ccc;">
+
+                <label>Suara Pelanggan</label>
+                <textarea id="suara"
+                    placeholder="Tuliskan suara atau masukan pelanggan..."
+                    style="width:100%;height:120px;padding:13px;margin:8px 0 15px;box-sizing:border-box;border-radius:10px;border:1px solid #ccc;resize:none;"></textarea>
+
+                <button onclick="simpanLaporan()" style="
+                    width:100%;
+                    padding:15px;
+                    border:0;
+                    border-radius:12px;
+                    background:#0052a5;
+                    color:white;
+                    font-size:16px;
+                    font-weight:bold;
+                ">
+                    SIMPAN LAPORAN
+                </button>
+
+                <button onclick="location.reload()" style="
+                    width:100%;
+                    padding:13px;
+                    margin-top:10px;
+                    border:0;
+                    border-radius:12px;
+                    background:#eef5fb;
+                    color:#0052a5;
+                    font-weight:bold;
+                ">
+                    KEMBALI
+                </button>
+
+            </div>
+
+            <div style="
+                text-align:center;
+                color:white;
+                margin-top:25px;
+                font-size:13px;
+            ">
+                Digital Customer Voice<br>
+                <b>Created by Dee</b>
+            </div>
+
+        </div>
+    </div>
+    `;
+}
+
+function simpanLaporan(){
+
+    const nama = document.getElementById("nama").value;
+    const tanggal = document.getElementById("tanggal").value;
+    const suara = document.getElementById("suara").value;
+
+    if(!nama || !tanggal || !suara){
+        alert("Mohon lengkapi semua data.");
+        return;
+    }
+
+    alert("Laporan berhasil dicatat.");
 }
 
 function pejabat(){
