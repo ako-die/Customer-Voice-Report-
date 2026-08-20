@@ -307,15 +307,39 @@ function petugas(){
 
 function simpanLaporan(){
 
-    const nama = document.getElementById("nama").value;
+    const nama = document.getElementById("nama").value.trim();
     const tanggal = document.getElementById("tanggal").value;
-    const suara = document.getElementById("suara").value;
+    const suara = document.getElementById("suara").value.trim();
 
     if(!nama || !tanggal || !suara){
         alert("Mohon lengkapi semua data.");
         return;
     }
 
+    const laporan = {
+        id: Date.now(),
+        nama: nama,
+        tanggal: tanggal,
+        suara: suara
+    };
+
+    let dataLaporan = JSON.parse(
+        localStorage.getItem("digitalCustomerVoice")
+    ) || [];
+
+    dataLaporan.push(laporan);
+
+    localStorage.setItem(
+        "digitalCustomerVoice",
+        JSON.stringify(dataLaporan)
+    );
+
+    alert("Laporan berhasil disimpan.");
+
+    document.getElementById("nama").value = "";
+    document.getElementById("tanggal").value = "";
+    document.getElementById("suara").value = "";
+}
     alert("Laporan berhasil dicatat.");
 }
 
